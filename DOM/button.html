@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 70%;
+        margin: auto;
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+</html>
+
+<script>
+  var btnObj = [
+    { text: "primary", bgcolor: "blue", color: "white", borderColor: "blue" },
+    { text: "Seconday", bgcolor: "grey", color: "white", borderColor: "grey" },
+    { text: "Success", bgcolor: "green", color: "white", borderColor: "green" },
+    { text: "Danger", bgcolor: "red", color: "white", borderColor: "red" },
+    {
+      text: "Warning",
+      bgcolor: "yellow",
+      color: "black",
+      borderColor: "yellow",
+    },
+    { text: "Info", bgcolor: "cyan", color: "white", borderColor: "cyan" },
+    {
+      text: "Light",
+      bgcolor: "whitesmoke",
+      color: "black",
+      borderColor: "whitesmoke",
+    },
+    { text: "Dark", bgcolor: "black", color: "white", borderColor: "black" },
+    { text: "Link", bgcolor: "white", color: "blue", borderColor: "white" },
+  ];
+
+  btnObj.map(function (elem, index, array) {
+    var btn1 = document.createElement("button");
+    btn1.innerText = elem.text;
+    btn1.style.backgroundColor = elem.bgcolor;
+    btn1.style.color = elem.color;
+    btn1.style.borderColor = elem.borderColor;
+    btn1.style.marginRight = "5px";
+    btn1.style.borderRadius = "5px";
+    btn1.style.padding = "10px 20px";
+    btn1.style.alignItems = "center";
+    btn1.style.justifyContent = "center";
+    document.querySelector("div").append(btn1);
+  });
+</script>

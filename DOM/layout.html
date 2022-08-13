@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #logo {
+        margin: auto;
+        height: 40px;
+        width: 140px;
+      }
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        text-align: center;
+        margin: auto;
+        line-height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <!-- <div>
+          <img src="" alt="">
+          <h2></h2>
+          <p>Roles</p>
+          img src="" alt="">
+    </div> -->
+    </div>
+  </body>
+</html>
+
+<script>
+  var investors = [
+    {
+      name: "Vijay shekar Sharma",
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+      companyLogo:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",
+      role: "Founder & CEO",
+    },
+    {
+      name: "Kunal Shah",
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+      companyLogo:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",
+      role: "Founder",
+    },
+    {
+      name: "Amrish Rau",
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+      companyLogo:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",
+      role: "CEO",
+    },
+    {
+      name: "Sampadh Swain",
+      image:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+      companyLogo:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",
+      role: "Co-Founder & CEO",
+    },
+  ];
+
+  investors.map(function (elem, index, array) {
+    // image, name , company logo image , role
+    var div = document.createElement("div");
+    var img = document.createElement("img");
+    img.setAttribute("src", elem.image);
+
+    var name = document.createElement("h1");
+    name.innerText = elem.name;
+
+    var role = document.createElement("p");
+    role.innerText = elem.role;
+
+    var logo = document.createElement("img");
+    logo.setAttribute("src", elem.companyLogo);
+    logo.setAttribute("id", "logo");
+
+    div.append(img, name, role, logo);
+    document.querySelector("#container").append(div);
+  });
+</script>

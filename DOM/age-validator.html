@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="gender">
+      <option value="">default</option>
+      <option value="Male">M</option>
+      <option value="Female">F</option>
+    </select>
+    <input type="number" value="Year Of Birth" id="year" />
+    <button onClick="checkEligibility()">Check</button>
+
+    <script>
+      function checkEligibility() {
+        var gender = document.getElementById("gender").value;
+        var age = 2022 - document.getElementById("year").value;
+        if (gender == "Male") {
+          if (age >= 21) {
+            alert("Legal to get married!");
+          } else {
+            alert("Not Allowed!");
+          }
+        }
+        if (gender == "Female") {
+          if (age >= 18) {
+            alert("Legal to get married!");
+          } else {
+            alert("Not Allowed!");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
