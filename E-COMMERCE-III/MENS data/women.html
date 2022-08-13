@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        /* border:2px solid black; */
+        margin: 10px;
+      }
+      #container > div {
+        /* border:1px solid green; */
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+      img {
+        width: 100%;
+        /* border:1px solid black; */
+      }
+      .priceDiv {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        /* border:1px solid red; */
+        height: 20px;
+      }
+      #links {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 1%;
+        box-shadow: 2px 2px 5px 5px rgb(235, 235, 235);
+        background-color: black;
+      }
+
+      #links > div {
+        display: flex;
+        list-style: none;
+      }
+      #links a {
+        text-decoration: none;
+        color: teal;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="links">
+      <div><a href="mens.html">MEN</a></div>
+      <div><a href="women.html">WOMEN</a></div>
+      <div><a href="home.html">HOME</a></div>
+      <div><a href="cart.html">GO TO CART</a></div>
+    </div>
+
+    <div id="container"></div>
+  </body>
+</html>
+<script src="./data/womendata.js"></script>
+<script>
+  var womensData = JSON.parse(localStorage.getItem("womensData"));
+  var cartItem = JSON.parse(localStorage.getItem("cartItems")) || [];
+  womensData[0].price = 1799;
+
+  function swap(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  function lth() {
+    var container = document.getElementById("container");
+    container.innerHTML = "";
+    for (var i = 0; i < womensData.length - 1; i++) {
+      for (var j = 0; j < womensData.length - i - 1; j++) {
+        if (womensData[j].price > womensData[j + 1].price) {
+          swap(womensData, j, j + 1); //swap swap(arr,j ,j+1)
+        }
+      }
+    }
+    lowHigh(womensData);
+  }
+  function htl() {
+    var container = document.getElementById("container");
+    container.innerHTML = "";
+    for (var i = 0; i < womensData.length - 1; i++) {
+      for (var j = 0; j < womensData.length - i - 1; j++) {
+        if (womensData[j].price < womensData[j + 1].price) {
+          swap(womensData, j, j + 1); //swap swap(arr,j ,j+1)
+        }
+      }
+    }
+    highLow(womensData);
+  }
+  function display(womensData) {
+    womensData.map(function (elem) {
+      var mainDiv = document.createElement("div");
+      var img = document.createElement("img");
+      img.setAttribute("src", elem.image_url);
+
+      var name = document.createElement("p");
+      name.innerText = elem.name;
+      //  name.style.textAlign="center";
+      name.style.wordSpacing = "8px";
+
+      var innerDiv = document.createElement("div");
+      var price = document.createElement("p");
+      price.innerText = elem.price;
+      price.style.color = "red";
+
+      var strikedoffprice = document.createElement("S");
+      strikedoffprice.innerText = elem.strikedoffprice;
+      strikedoffprice.style.marginTop = "14px";
+      strikedoffprice.style.color = "red";
+
+      innerDiv.append(price, strikedoffprice);
+      innerDiv.setAttribute("class", "priceDiv");
+
+      var cart = document.createElement("button");
+      cart.innerText = "Add to cart";
+      cart.style.marginTop = "10px";
+      cart.style.padding = "10px";
+      cart.addEventListener("click", function () {
+        addToCart(elem);
+      });
+
+      mainDiv.append(img, name, innerDiv, cart);
+      document.querySelector("#container").append(mainDiv);
+    });
+
+    function addToCart(elem) {
+      console.log(elem);
+      cartItem.push(elem);
+      elem.quant = 1;
+      console.log(cartItem);
+      localStorage.setItem("cartItems", JSON.stringify(cartItem));
+    }
+  }
+  function highLow(womensData) {
+    display(womensData);
+  }
+  function lowHigh(womensData) {
+    display(womensData);
+  }
+
+  lowHigh(womensData);
+  highLow(womensData);
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        /* border:2px solid black; */
+        margin: 10px;
+      }
+      #container > div {
+        /* border:1px solid green; */
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+      img {
+        width: 100%;
+        /* border:1px solid black; */
+      }
+      .priceDiv {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        /* border:1px solid red; */
+        height: 20px;
+      }
+      h1 {
+        margin-top: 20px;
+        margin-left: 40px;
+        padding: 10px;
+        width: 150px;
+      }
+      #links {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 1%;
+        box-shadow: 2px 2px 5px 5px rgb(235, 235, 235);
+        background-color: black;
+      }
+
+      #links > div {
+        display: flex;
+        list-style: none;
+      }
+      #links a {
+        text-decoration: none;
+        color: teal;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="links">
+      <div><a href="mens.html">MEN</a></div>
+      <div><a href="women.html">WOMEN</a></div>
+      <div><a href="home.html">HOME</a></div>
+      <div><a href="cart.html">GO TO CART</a></div>
+    </div>
+    <div id="container"></div>
+    <h1 id="total">TOTAL</h1>
+  </body>
+</html>
+<script>
+  var cartItem = JSON.parse(localStorage.getItem("cartItems"));
+
+  // var addedToCartItem=[];
+
+  console.log(cartItem);
+  function display(cartItem) {
+    cartItem.map(function (elem) {
+      var mainDiv = document.createElement("div");
+      var img = document.createElement("img");
+      img.setAttribute("src", elem.image_url);
+
+      var name = document.createElement("p");
+      name.innerText = elem.name;
+      //  name.style.textAlign="center";
+      name.style.wordSpacing = "8px";
+
+      var innerDiv = document.createElement("div");
+      var price = document.createElement("p");
+      price.innerText = elem.price + "-" + elem.quant;
+      price.style.color = "red";
+
+      var strikedoffprice = document.createElement("S");
+      strikedoffprice.innerText = elem.strikedoffprice;
+      strikedoffprice.style.marginTop = "14px";
+      strikedoffprice.style.color = "red";
+
+      var cart = document.createElement("button");
+      cart.innerText = "Add+1";
+      cart.style.marginTop = "15px";
+
+      cart.addEventListener("click", function () {
+        increaseQuant(index);
+      });
+
+      innerDiv.append(price, strikedoffprice);
+      innerDiv.setAttribute("class", "priceDiv");
+
+      mainDiv.append(img, name, innerDiv, cart);
+      document.querySelector("#container").append(mainDiv);
+    });
+
+    //  localStorage.setItem("AddedItems",JSON.stringify(addedToCartItem));
+    var total = cartItem.reduce(function (acc, elem) {
+      return acc + elem.price;
+    }, 0);
+
+    document.getElementById("total").innerText = total;
+  }
+
+  display(cartItem);
+
+  function increaseQuant(index) {
+    //  console.log(index);
+    cartItem[index].quant++;
+    console.log(cartItem);
+  }
+</script>
