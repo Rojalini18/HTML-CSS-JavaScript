@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flex {
+        gap: 20px;
+        display: grid;
+        justify-content: center;
+        margin-top: 60px;
+        grid-template-columns: repeat(4, 120px);
+        grid-template-rows: repeat(2, 100px);
+        grid-template-areas:
+          "a a b e"
+          "c d b e";
+      }
+
+      .flex > div {
+        background-color: rgb(68, 68, 68);
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 40px;
+        color: white;
+      }
+      .a {
+        grid-area: a;
+      }
+      .b {
+        grid-area: b;
+      }
+      .c {
+        grid-area: c;
+      }
+      .d {
+        grid-area: d;
+      }
+      .e {
+        grid-area: e;
+      }
+      .grid {
+        gap: 20px;
+        display: grid;
+        justify-content: center;
+        margin-top: 100px;
+        grid-template-columns: repeat(4, 120px);
+        grid-template-rows: repeat(3, 100px);
+        grid-template-areas:
+          "a a b b"
+          "c d d d"
+          "e e e e";
+      }
+      .grid > div {
+        background-color: rgb(68, 68, 68);
+        border-radius: 5px;
+        font-size: 40px;
+        color: white;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="a">A</div>
+      <div class="b">B</div>
+      <div class="c">C</div>
+      <div class="d">D</div>
+      <div class="e">E</div>
+    </div>
+    <div class="grid">
+      <div class="a">A</div>
+      <div class="b">B</div>
+      <div class="c">C</div>
+      <div class="d">D</div>
+      <div class="e">E</div>
+    </div>
+  </body>
+</html>
