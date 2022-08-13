@@ -1,0 +1,75 @@
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(118, 17, 212);
+}
+
+.container {
+  width: 30%;
+  margin: auto;
+  padding-top: 100px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: rgb(32, 32, 32);
+}
+
+#counter {
+  font-size: 70px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px;
+  /* border-radius: 20px; */
+  border: 2px solid black;
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+#dec {
+  color: red;
+  font-weight: bold;
+}
+
+#dec:hover {
+  background-color: black;
+}
+
+#inc {
+  color: rgb(36, 187, 36);
+  font-weight: bold;
+}
+
+#inc:hover {
+  background-color: black;
+}
+
+#res {
+  color: rgb(20, 24, 243);
+  font-weight: bold;
+  margin: 0px 10px;
+  width: 80px;
+}
+
+#res:hover {
+  background-color: black;
+}
+
+@media screen and (max-width: 1300px) {
+  .btncontainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .res {
+    margin: 20px 0px;
+  }
+}
