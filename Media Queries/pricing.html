@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .top {
+        width: 40%;
+        /* border:1px solid red; */
+        margin: auto;
+        height: 150px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      }
+      .top > h3 {
+        /* width:40%; */
+        text-align: center;
+        padding: 0% 19%;
+        padding-top: 40px;
+      }
+      .top > p {
+        text-align: center;
+      }
+      .bottom {
+        /* margin:center;
+        width: 70%; 
+        border:1px solid red;  */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 300px;
+        gap: 20px;
+        width: 45%;
+        margin: auto;
+        padding-top: 20px;
+      }
+      .bottom > div {
+        gap: 40px;
+        /* border: 1px solid blue; */
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        text-align: center;
+      }
+
+      .bottom > div > h1 {
+        color: green;
+      }
+
+      button,
+      .second {
+        color: mediumblue;
+        background-color: white;
+        border: 1px solid mediumblue;
+        border-radius: 3px;
+        width: 40%;
+        height: 30px;
+      }
+      .second {
+        background-color: rgba(80, 17, 226, 0.938);
+        color: mintcream;
+      }
+      #orange {
+        color: orangered;
+      }
+      #blue {
+        color: blue;
+      }
+
+      @media all and (min-width: 381px) and (max-width: 700px) {
+        .bottom {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media all and (min-width: 50px) and (max-width: 380px) {
+        .bottom {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <h3>Choose a plan that right for your bussiness</h3>
+      <p>
+        We collect reviesw from your users so you can get an honest opinionof
+        what an experience with our website are really like!
+      </p>
+    </div>
+    <div class="bottom">
+      <div>
+        <h3>Starter Plan</h3>
+        <h1>Free</h1>
+        <p>Per month</p>
+        <p>
+          We collect reviesw from your users so you can get an honest opinionof
+          what an experience with our website are really like!
+        </p>
+        <button>Start Now</button>
+      </div>
+
+      <div>
+        <h3>Business Plan</h3>
+        <h1 id="orange">$39.00</h1>
+        <p>Per month</p>
+        <p>
+          We collect reviesw from your users so you can get an honest opinionof
+          what an experience with our website are really like!
+        </p>
+        <button class="second">Start Now</button>
+      </div>
+
+      <div>
+        <h3>Premium Plan</h3>
+        <h1 id="blue">$59.00</h1>
+        <p>Per month</p>
+        <p>
+          We collect reviesw from your users so you can get an honest opinionof
+          what an experience with our website are really like!
+        </p>
+        <button>Start Now</button>
+      </div>
+    </div>
+  </body>
+</html>
