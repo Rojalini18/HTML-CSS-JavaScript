@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #courses {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 170px);
+            margin: auto;
+            width: 50%;
+            gap: 25px;
+        }
+
+        #courses>div>img {
+            border-radius: 50px;
+            background-color: green;
+        }
+
+        div>h3,
+        p {
+            padding-left: 50px;
+            /* padding-top: 20px; */
+        }
+
+        div {
+            text-align: center;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        /* 2ndpart */
+
+        #bottom {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 450px;
+            margin: auto;
+            width: 40%;
+            gap: 25px;
+            border: 1px solid blue;
+        }
+
+        #bottom>div {
+            border: 1px solid red;
+        }
+
+        /* BOTTOM */
+
+        #certified {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        #placeholder {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 400px;
+            margin: auto;
+            width: 80%;
+            gap: 25px;
+        }
+
+        #placeholder>div {
+            /* border:1px solid red; */
+            text-align: center;
+        }
+
+        #placeholder>div>img {
+            width: 300px;
+            height: 250px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        /* media-query */
+
+        @media only screen and (min-width: 421px) and (max-width: 720px) {
+            #courses {
+                display: grid;
+                margin: auto;
+                width: 50%;
+                gap: 25px;
+                grid-template-columns: repeat(2, 1fr);
+                /* grid-template-rows: repeat(2,170px); */
+            }
+
+            #placeholder {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                /* grid-template-rows: 400px; */
+                margin: auto;
+                width: 80%;
+                gap: 25px;
+
+            }
+        }
+
+        /* small screens */
+        @media only screen and (min-width: 0px) and (max-width: 420px) {
+            #courses {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            #placeholder>div {
+                /* border:1px solid red; */
+                text-align: center;
+            }
+
+            #placeholder>div>img {
+                width: 200px;
+                height: 250px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="courses">
+        <div>
+            <img src="https://via.placeholder.com/50" alt="photo">
+            <h3>Business School</h3>
+            <p>Crea vitae turpis laciniata
+                cus,non fermentum nisi.
+            </p>
+        </div>
+        <div>
+            <img src="https://via.placeholder.com/50" alt="photo">
+            <h3>Marketing</h3>
+            <p>Crea vitae turpis laciniata
+                cus,non fermentum nisi.
+            </p>
+        </div>
+
+        <div>
+            <img src="https://via.placeholder.com/50" alt="photo">
+            <h3>photography</h3>
+            <p>Crea vitae turpis laciniata
+                cus,non fermentum nisi.
+            </p>
+        </div>
+
+        <div>
+            <img src="https://via.placeholder.com/50" alt="photo">
+            <h3>Social Media</h3>
+            <p>Crea vitae turpis laciniata
+                cus,non fermentum nisi.
+            </p>
+        </div>
+
+        <div>
+            <img src="https://via.placeholder.com/50" alt="photo">
+            <h3>Development</h3>
+            <p>Crea vitae turpis laciniata
+                cus,non fermentum nisi.
+            </p>
+        </div>
+
+        <div>
+            <img src="https://via.placeholder.com/50" alt="photo">
+            <h3>Design</h3>
+            <p>Crea vitae turpis laciniata
+                cus,non fermentum nisi.
+            </p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+
+<!--2nd Question-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Certified Teachers</h2>
+    <h6 style="text-align: center;">Separated they live in.A small river named Dudden flows by their place and supplies
+        it with the necessary regeliallia.It is a paradisematic country</h6>
+    <!-- parent div-->
+    <div style="
+         height: 450px;
+         width: 80%;
+         display: flex;
+         justify-content: center;
+         margin: auto;
+        ">
+        <!--1st child-->
+        <div style="
+       height: 450px;
+       width: 23%;
+       margin-right: 1%;
+    ">
+            <img style="width:100%" src="https://via.placeholder.com/320x350" alt="teachers" />
+            <div style="line-height: 5px;">
+                <h2 style="text-align: center">Bianca Wilson</h2>
+                <h6 style="text-align: center; color: orangered">TEACHER</h6>
+                <h6 style="line-height: 15px; text-align: center;color: black;">I am an ambitious workaholic, but appart
+                    from that ,preety
+                    simple person.</h6>
+            </div>
+        </div>
+
+        <!--2nd child-->
+        <div style="
+       height: 450px;
+       width: 23%;
+       margin-right: 1%;
+    ">
+            <img style="width:100%" src="https://via.placeholder.com/320x350" alt="teachers" />
+            <div style="line-height: 5px;">
+                <h2 style="text-align: center">Mitch Parker</h2>
+                <h6 style="text-align: center; color: orangered">ENGLISH TEACHER</h6>
+                <h6 style="line-height: 15px; text-align: center;color: black;">I am an ambitious workaholic, but appart
+                    from that ,preety
+                    simple person.</h6>
+            </div>
+        </div>
+
+        <!--3rd child-->
+        <div style="
+       height: 450px;
+       width: 23%;
+       margin-right: 1%;
+    ">
+            <img style="width:100%" src="https://via.placeholder.com/320x350" alt="teachers" />
+            <div style="line-height: 5px;">
+                <h2 style="text-align: center">Stella Smith</h2>
+                <h6 style="text-align: center; color: orangered">ART TEACHER</h6>
+                <h6 style="line-height: 15px; text-align: center;color: black;">I am an ambitious workaholic, but appart
+                    from that ,preety
+                    simple person.</h6>
+            </div>
+        </div>
+        <!--4th child-->
+        <div style="
+       height: 450px;
+       width: 23%;
+       margin-right: 1%;
+    ">
+            <img style="width:100%" src="https://via.placeholder.com/320x350" alt="teachers" />
+            <div style="line-height: 5px;">
+                <h2 style="text-align: center">Monshe Henderson</h2>
+                <h6 style="text-align: center; color: orangered">SCIENCE TEACHER</h6>
+                <h6 style="line-height: 15px; text-align: center;color: black;">I am an ambitious workaholic, but appart
+                    from that ,preety
+                    simple person.</h6>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
