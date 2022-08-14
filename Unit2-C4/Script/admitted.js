@@ -1,24 +1,32 @@
-var acceptArr = JSON.parse(localStorage.getItem("admitted"));
-console.log(acceptArr);
+let admittedArr = JSON.parse(localStorage.getItem("admitted"));
 
-acceptArr.map(function (elem, index) {
-  var row = document.createElement("tr");
+// function to dissplay admitted students on the page
+displayAdmittedStudent(admittedArr);
 
-  var c1 = document.createElement("td");
-  c1.innerText = elem.tempname;
+function displayAdmittedStudent(admittedArr) {
+  // this steps prevents the data to be displayed multiple times on the page
+  document.querySelector("#body").innerHTML = null;
 
-  var c2 = document.createElement("td");
-  c2.innerText = elem.tempage;
+  admittedArr.map(function (elem, index) {
+    let row = document.createElement("tr");
 
-  var c3 = document.createElement("td");
-  c3.innerText = elem.tempgender;
+    let nameColumn = document.createElement("td");
+    nameColumn.innerText = elem.name;
 
-  var c4 = document.createElement("td");
-  c4.innerText = elem.tempemail;
+    let ageColumn = document.createElement("td");
+    ageColumn.innerText = elem.age;
 
-  var c5 = document.createElement("td");
-  c5.innerText = elem.tempphone;
+    let genderColumn = document.createElement("td");
+    genderColumn.innerText = elem.gender;
 
-  row.append(c1, c2, c3, c4, c5);
-  document.querySelector("#body").append(row);
-});
+    let emailColumn = document.createElement("td");
+    emailColumn.innerText = elem.email;
+
+    let numberColumn = document.createElement("td");
+    numberColumn.innerText = elem.phone;
+
+    row.append(nameColumn, ageColumn, genderColumn, emailColumn, numberColumn);
+
+    document.querySelector("#body").append(row);
+  });
+}
