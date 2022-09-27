@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 220px;
+        border-radius: 5px;
+        background: rgb(0, 0, 0);
+        text-align: center;
+        margin: auto;
+        margin-top: 40px;
+        padding: 30px;
+        color: white;
+        background-color: black;
+      }
+      #container > form > input {
+        margin-bottom: 15px;
+        width: 200px;
+        height: 25px;
+      }
+
+      #container > form > input:nth-child(5) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Payment</h1>
+      <form action="" id="form">
+        <input type="number" placeholder="Enter Card Number" />
+        <input type="number" placeholder="Ender CVV" />
+        <input type="date" placeholder="Enter Exp Date" />
+        <input type="text" placeholder="Enter Name" />
+        <input type="submit" />
+      </form>
+    </div>
+  </body>
+  <script>
+    document.querySelector("#form").addEventListener("submit", myfunction);
+    function myfunction() {
+      event.preventDefault();
+      alert("OTP sent to your registered mobile number");
+      window.location.href = "otp.html";
+    }
+  </script>
+</html>

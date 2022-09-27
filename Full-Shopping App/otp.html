@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 220px;
+        border-radius: 5px;
+        background: rgb(0, 0, 0);
+        text-align: center;
+        margin: auto;
+        margin-top: 40px;
+        padding: 30px;
+        color: white;
+        background-color: black;
+      }
+      #container > form > input {
+        margin-bottom: 15px;
+        width: 200px;
+        height: 25px;
+      }
+
+      #container > form > input:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Enter OTP</h1>
+      <form action="">
+        <input type="number" placeholder="OTP here!" id="otp" />
+        <input type="submit" />
+      </form>
+    </div>
+  </body>
+  <script>
+    document.querySelector("form").addEventListener("submit", myfunction);
+    function myfunction() {
+      event.preventDefault();
+      var otp = document.querySelector("#otp").value;
+      if (otp == "1234") {
+        alert("Payment Sucesseful");
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</html>

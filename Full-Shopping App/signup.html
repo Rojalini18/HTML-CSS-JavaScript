@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #navbar {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(121, 9, 9, 1) 42%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        align-items: center;
+      }
+      #navbar > div > :hover {
+        color: aqua;
+      }
+      a {
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        cursor: grab;
+      }
+      #container {
+        width: 220px;
+        border-radius: 5px;
+        background: rgb(0, 0, 0);
+        text-align: center;
+        margin: auto;
+        margin-top: 40px;
+        padding: 30px;
+        color: white;
+      }
+      #container > form > input {
+        margin-bottom: 15px;
+        width: 200px;
+        height: 25px;
+      }
+      #container > form > input:nth-child(4) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div><a href="mens.html">Mens</a></div>
+      <div><a href="womens.html">Womens</a></div>
+      <div><a href="signup.html">Sign Up</a></div>
+      <div><a href="loginpage.html">Login</a></div>
+    </div>
+
+    <div id="container">
+      <h1>SignUp</h1>
+      <form action="">
+        <input type="email" placeholder="Enter Email" id="email" />
+        <input type="password" placeholder="Enter Password" id="password" />
+        <input type="name" placeholder="User Name" id="name" />
+        <input type="submit" />
+      </form>
+    </div>
+  </body>
+  <script>
+    document.querySelector("form").addEventListener("submit", submitfunction);
+    var userdataarr = JSON.parse(localStorage.getItem("userdata")) || [];
+    function submitfunction() {
+      event.preventDefault();
+      var signupobj = {
+        useremail: document.querySelector("#email").value,
+        userpassword: document.querySelector("#password").value,
+        username: document.querySelector("#name").value,
+      };
+      userdataarr.push(signupobj);
+      localStorage.setItem("userdata", JSON.stringify(userdataarr));
+      alert("Signup Sucessfull");
+      window.location.href = "loginpage.html";
+    }
+  </script>
+</html>

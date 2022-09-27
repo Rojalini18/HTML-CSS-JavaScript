@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #navbar {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(121, 9, 9, 1) 42%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        align-items: center;
+      }
+      #navbar > div > :hover {
+        color: aqua;
+      }
+      a {
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        cursor: grab;
+      }
+      #container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+      }
+      #innerbox {
+        width: 200px;
+        padding: 30px;
+        border-radius: 8px;
+        margin-top: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div><a href="mens.html">Mens</a></div>
+      <div><a href="womens.html">Womens</a></div>
+      <div><a href="signup.html">Sign Up</a></div>
+      <div><a href="loginpage.html">Login</a></div>
+    </div>
+    <h1>Im Cart</h1>
+    <p id="total"></p>
+    <p id="totalprice"></p>
+    <button id="payment">Buy</button>
+    <form action="">
+      <input type="text" id="code" />
+      <input type="submit" />
+    </form>
+    <div id="container"></div>
+  </body>
+  <script>
+    var data = JSON.parse(localStorage.getItem("cartdata"));
+    var code = document
+      .querySelector("form")
+      .addEventListener("click", myfunction);
+    var total = data.reduce(function (sum, element, index, arr) {
+      return sum + Number(element.price);
+    }, 0);
+    document.querySelector("#total").innerText = "Total price=" + " " + total;
+    function myfunction() {
+      event.preventDefault();
+
+      var code = document.querySelector("#code").value;
+      if (code == "masai30") {
+        var discount = total - (total / 100) * 30;
+        document.querySelector("#total").innerText =
+          "Total price=" + " " + Math.floor(discount);
+      } else {
+        document.querySelector("#total").innerText =
+          "Total price=" + " " + total;
+      }
+    }
+
+    var totalitem = data.length;
+    document.querySelector("#totalprice").innerText =
+      "Total No of products = " + totalitem;
+
+    data.map(function (el, index) {
+      var innerbox = document.createElement("div");
+      innerbox.setAttribute("id", "innerbox");
+      var image1 = document.createElement("img");
+      image1.src = el.image_url;
+      var name1 = document.createElement("p");
+      name1.innerText = el.name;
+      var price1 = document.createElement("p");
+      price1.innerText = el.price;
+      var remove = document.createElement("button");
+      remove.innerText = "Remove item";
+      remove.addEventListener("click", function () {
+        removeitem(el, index);
+      });
+      innerbox.append(image1, name1, price1, remove);
+      document.querySelector("#container").append(innerbox);
+    });
+
+    function removeitem(el, index) {
+      data.splice(index, 1);
+      localStorage.setItem("cartdata", JSON.stringify(data));
+      window.location.reload();
+    }
+    document.querySelector("#payment").addEventListener("click", paymentpage);
+    function paymentpage() {
+      window.location.href = "payment.html";
+    }
+  </script>
+</html>
